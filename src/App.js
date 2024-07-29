@@ -1,11 +1,20 @@
-import React from 'react'
-import TabButton from './components/TabButton'
+import React, { useEffect, useState } from 'react'
 
 function App() {
+  const [count, setCount] = useState(0)
+
+  function getResult(){
+    let str= "hello"
+  }
+
+  useEffect(() => {
+    setCount((count) => count + 1)
+  }, [])
+  // we have specified a function in the dependency array
+
   return (
     <div>
-     <TabButton>Content</TabButton>
-     <TabButton>jsx</TabButton>
+      <p>value of count: {count}</p>
     </div>
   )
 }
