@@ -1,25 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 function App() {
-  const [name, setName] = useState("");
-  const nameRef = useRef();
-
-  function handleName() {
-    setName(nameRef.current.value);
-    nameRef.current.focus()
-    // let newP = document.createElement("p")
-    // newP.innerText=name
-    console.log(newP)
-  }
-
+  const [userInput,setUserInput]=useState("")
+  const [num1]=useState(4)
+  const [num2]=useState(5)
+  const sum = ()=>num1+num2
+  useEffect(()=>{
+    console.log(sum())
+  })
   return (
-    <div>
-      <h1>This is {name? name:"unknown"}</h1>
-      <input ref={nameRef} type='text' />
-      <button onClick={handleName}>Change</button>
-      
+    <div>App
+      <input onChange={(e)=>setUserInput(e.target.value)}/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
