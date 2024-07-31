@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState("");
+  const nameRef = useRef();
 
-  function getResult(){
-    let str= "hello"
+  function handleName() {
+    setName(nameRef.current.value);
+    nameRef.current.focus()
+    // let newP = document.createElement("p")
+    // newP.innerText=name
+    console.log(newP)
   }
-
-  useEffect(() => {
-    setCount((count) => count + 1)
-  }, [])
-  // we have specified a function in the dependency array
 
   return (
     <div>
-      <p>value of count: {count}</p>
+      <h1>This is {name? name:"unknown"}</h1>
+      <input ref={nameRef} type='text' />
+      <button onClick={handleName}>Change</button>
+      
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
