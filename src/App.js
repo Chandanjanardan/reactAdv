@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import Productlist from './components/custom/Productlist'
 
 function App() {
-  const [userInput,setUserInput]=useState("")
-  const [num1]=useState(4)
-  const [num2]=useState(5)
-  const sum = ()=>num1+num2
-  useEffect(()=>{
-    console.log(sum())
-  })
   return (
-    <div>App
-      <input onChange={(e)=>setUserInput(e.target.value)}/>
-    </div>
+    <div><Productlist/></div>
   )
 }
 
