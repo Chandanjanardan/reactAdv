@@ -1,24 +1,11 @@
 import React from 'react'
-import useFetchProduts from './useFetchProduts'
+import useFetchProduct from './useFetchProduts'
 
 function Productlist() {
-    const {data,loading,error}=useFetchProduts("https://fakestoreapi.com/products")
-    if(loading){
-        return <p>Loading Products...</p>
-    }
-    if(error){
-        return <p>Error:{error}</p>
-    }
+    const {data,loading,error}=useFetchProduct("https://fakestoreapi.com/products")
     console.log(data)
   return (
-    <div>
-        <h1>Product list</h1>
-        <ul>
-            {data.map(product=>(
-                <li key={product.id}>{product.title}</li>
-            ))}
-        </ul>
-    </div>
+    <div>Productlist</div>
   )
 }
 

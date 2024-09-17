@@ -1,20 +1,21 @@
-import React,{useState,useEffect} from 'react'
+import { useEffect, useState } from "react"
 
-function useFetchProduts(url) {
+const useFetchProduct=(url)=>{
     const [data,setData]=useState([])
-    const [loading,setLoading]=useState(true)
+    const [loading,setLoading]=useState(false)
     const [error,setError]=useState(null)
 
+
     useEffect(()=>{
-        const fetchData= async()=>{
+        const fetchData = async()=>{
             setLoading(true)
             try {
                 const response = await fetch(url)
                 if(!response.ok){
-                    throw new Error("network response was not ok")
+                    throw new Error("Response is not OK")
                 }
-                const reslut = await response.json()
-                setData(reslut)
+                const result = await response.json()
+                setData(result)
             } catch (error) {
                 setError(error.message)
                 
@@ -22,11 +23,13 @@ function useFetchProduts(url) {
                 setLoading(false)
             }
         }
-        fetchData();
+        fetchData()
     },[url])
-  return {data,loading,error}
-   
-  
+
+    return {data,loading,error}
+
 }
 
-export default useFetchProduts
+
+
+export default useFetchProduct

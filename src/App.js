@@ -1,9 +1,11 @@
 import React from 'react'
-import Productlist from './components/custom/Productlist'
+import MyForm from './components/custom/MyForm'
 
 function App() {
   return (
-    <div><Productlist/></div>
+    <div>
+      <MyForm/>
+    </div>
   )
 }
 
